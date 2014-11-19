@@ -1,1 +1,0 @@
-CalabashTesting demo repository
