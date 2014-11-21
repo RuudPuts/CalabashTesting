@@ -4,6 +4,16 @@ target = ARGV.shift
 Android_APK="prebuilt/CalabashDemo-debug.apk"
 iOS_APP="prebuilt/CalabashDemo-cal.app"
 
+all_arguments = ""
+ARGV.each do|argument|
+	argument = argument.dup
+	if argument.include? " "
+		argument = argument.gsub(" ", '\ ')
+	end
+	all_arguments.concat(" #{argument}")
+end
+all_arguments = all_arguments.strip! || all_arguments
+
 unless system("bundle version")
   puts "Can't find bundler. Check your ruby environment."
   puts "If your using ~/.calabash then run:"
@@ -17,9 +27,9 @@ EOF
 end
 
 if target == 'android'
-  exec("export APP=#{Android_APK} && bundle exec calabash-android run $APP -p android #{ARGV.join(' ')}")
+  exec("export APP=#{Android_APK} && bundle exec calabash-android run $APP -p android #{all_arguments}")
 elsif target == 'ios'
-  exec("export APP=#{iOS_APP} && export APP_BUNDLE_PATH=$APP && bundle exec cucumber -p ios #{ARGV.join(' ')}")
+  exec("export APP=#{iOS_APP} && export APP_BUNDLE_PATH=$APP && bundle exec cucumber -p ios #{all_arguments}")
 else
   puts "Invalid target #{target}"
 end
