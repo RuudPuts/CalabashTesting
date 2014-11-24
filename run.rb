@@ -27,9 +27,9 @@ EOF
 end
 
 if target == 'android'
-  exec("export APP=#{Android_APK} && bundle exec calabash-android run $APP -p android #{all_arguments}")
+  exec("export APP=#{Android_APK} && bundle exec calabash-android run $APP -p android --tags @android #{all_arguments}")
 elsif target == 'ios'
-  exec("export APP=#{iOS_APP} && export APP_BUNDLE_PATH=$APP && bundle exec cucumber -p ios #{all_arguments}")
+  exec("export APP=#{iOS_APP} && export APP_BUNDLE_PATH=$APP && bundle exec cucumber -p ios  --tags @ios #{all_arguments}")
 else
   puts "Invalid target #{target}"
 end
