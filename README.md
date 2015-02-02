@@ -55,7 +55,12 @@ $ ./run.rb ios
 
 Running tests on a physical iOS device needs a bit more setup work than testing on Android devices. iOS needs both the `DEVICE_TARGET` and the `DEVICE_ENDPOINT` parameter. `DEVICE_ENDPOINT` is the endpoint to the Calabash HTTP-server within the app, in other words it's the IP-address of your iOS device with a port. It's recommended to set your iOS device to a static IP.
 
-To find all available devices, make sure ADB is installed and run the following command
+In order to continue, Xcode's command line tools need to be installed. If you don't yet have them installed, run the following command:
+```sh
+$ xcode-select --install
+```
+
+To find all available devices, run the following command:
 ```sh
 $ instruments -s devices
 ```
