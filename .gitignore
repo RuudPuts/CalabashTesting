@@ -1,3 +1,12 @@
-~$TEST_v1.xls
+~$*.xlsb
 .irb-historyb
+.irb-history
 test_servers
+.idea
+*.png
+*.cmd
+*.apk
+*.f___eature
+*.txt
+Gemfile.lock
+installation.log
