@@ -1,0 +1,6 @@
+[submodule "src/iOS"]
+	path = src/iOS
+	url = https://github.com/RuudPuts/CalabashTesting_iOSDemoApp.git
+[submodule "src/Android"]
+	path = src/Android
+	url = https://github.com/RuudPuts/CalabashTesting_AndroidDemoApp.git
