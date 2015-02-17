@@ -1,15 +1,11 @@
-# Given(/^I am on the input screen$/) do
-#   @current_page = page(InputPage).await(timeout: 30)
-# end
+Given(/^I am on the (.*?) screen$/) do |screen_name|
+end
 
-# Given(/^I type "(.*?)" into the textfield$/) do |text|
-#   @current_page.textfield.text = text
-# end
+Given(/^I type "(.*?)" into textfield with id "(.*?)"$/) do |text, textfield_identifier|
+end
 
-# Given(/^I touch the (.*?) button$/) do |text|
-#   @current_page.next_button.tap
-# end
+Given(/^I press the button with id "(.*?)"$/) do |button_identifier|
+end
 
-# Then(/^I am on the result screen$/) do
-#   @current_page = page(ResultPage).await(timeout: 30)
-# end
+Then(/^I see the text "(.*?)" in the label with id "(.*?)"$/) do |text, label_identifier|
+end
