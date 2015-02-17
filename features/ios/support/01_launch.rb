@@ -22,8 +22,12 @@ Before do |scenario|
   $calabashQueryView = self
   scenario_tags = scenario.source_tag_names
   if scenario_tags.include?('@reinstall')
-    ios_deploy = File.join(File.dirname(__FILE__),"tools","ios-deploy")
-    system("#{ios_deploy} --bundle $APP_BUNDLE_PATH --id $DEVICE_TARGET --uninstall > installation.log")
+    if ENV.to_hash.has_key?('DEVICE_TARGET')
+      ios_deploy = File.join(File.dirname(__FILE__),"tools","ios-deploy")
+      system("#{ios_deploy} --bundle $APP_BUNDLE_PATH --id $DEVICE_TARGET --uninstall > installation.log")
+    else
+      @calabash_launcher.reset_app_jail
+    end
   end
   unless @calabash_launcher.calabash_no_launch?
     @calabash_launcher.relaunch()
